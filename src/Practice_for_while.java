@@ -1,6 +1,6 @@
 public class Practice_for_while {
     public static void main(String[] args) {
-       boolean res = equalNum(1121);
+        boolean res = equalNum(-444474);
         System.out.println(res);
 
 
@@ -48,14 +48,15 @@ public class Practice_for_while {
     }
 
     public static boolean equalNum(int x) {
-        boolean res = true;
-        for (int i = x; i >= 10; i /= 10) {
-            int i2 = x % 10;
-            if (i2 != i % 10) res = false;
-            break;
+        if (x<0) x=-x;
+        int i2 = x % 10;
+        while (x % 10 > 0) {
+            if (i2 != x % 10) return false;
+            x /= 10;
         }
-        return res;
+        return true;
     }
+
 
     public static void square(int x) {
         for (int i = 1; i <= x; i++) {
@@ -95,7 +96,7 @@ public class Practice_for_while {
             java.util.Scanner sc = new java.util.Scanner(System.in);
             System.out.println("What number am I thinking (0 to 9)? :");
             x = sc.nextInt();
-            count +=1;
+            count += 1;
             if (x != randomNum) {
                 System.out.println("No, try again");
             } else {
@@ -105,5 +106,5 @@ public class Practice_for_while {
         }
         while (randomNum != x);
 
-        }
     }
+}
