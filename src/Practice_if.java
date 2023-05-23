@@ -1,12 +1,9 @@
 public class Practice_if {
     public static void main(String[] args) {
-        printDays("вторник");
-        System.out.println();
-        printDays("пятница");
-        System.out.println();
-        printDays("ку");
-        System.out.println();
-        printDays("понедельник");
+       for(int i=1; i<=150; i++){
+           System.out.println(age(i));
+       }
+
 
     }
     public static int abs(int x){
@@ -45,11 +42,11 @@ public class Practice_if {
         return false;
     }
     public static boolean magic6(int x, int y){
-        return x==6 || y ==6 || x+y==6 || x-y==6;
+        return x==6 || y ==6 || x+y==6 || x-y==6 || y-x==6;
     }
     public static String age(int x){
-        if (x%10==1 && (int)x/10!=11) return x + " год";
-        if ((x%10==2 || x%10==3 || x%10==4) && (x/10!=12 && x/10!=12 && x/10!=13 && x/10!=14)) return x + " года";
+        if (x%10==1 && x%100!=11) return x + " год";
+        if ((x%10==2 || x%10==3 || x%10==4) && (x%100!=12 && x%100!=13 && x%100!=14)) return x + " года";
         return x + " лет";
     }
     public static String day(int x){
