@@ -1,6 +1,5 @@
-package ru.сourses.birds;
+package ru.courses.birds;
 
-import java.lang.Math;
 public abstract class Bird {
     public Bird() {}
     String name;

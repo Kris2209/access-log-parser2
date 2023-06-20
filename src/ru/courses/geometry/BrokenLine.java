@@ -1,4 +1,4 @@
-package ru.сourses.geometry;
+package ru.courses.geometry;
 
 import java.util.Arrays;
 
@@ -33,6 +33,28 @@ public class BrokenLine {
         double res = 0;
         for (int i = 0; i < arrLine.length; i++) res += arrLine[i].lineLenght();
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BrokenLine that = (BrokenLine) o;
+        boolean res = true;
+        int x = arr.length;
+        for (int i = 0; i<=x; i++){
+            if (((BrokenLine) o).arr[i].equals(arr[i])){
+               res = true;
+            }
+            else res = false;
+            break;
+        }
+        return res;
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(arr);
     }
 }
 

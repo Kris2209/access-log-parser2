@@ -1,4 +1,4 @@
-package ru.сourses.geometry;
+package ru.courses.geometry;
 public class PointPlusOnePoint extends Point{
     int z;
     public PointPlusOnePoint(int x, int y, int z) {

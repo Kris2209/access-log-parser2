@@ -1,19 +1,32 @@
-package ru.сourses;
+package ru.courses.main;
 
-import ru.сourses.birds.*;
-import ru.сourses.geometry.BrokenLine;
-import ru.сourses.geometry.Line;
-import ru.сourses.geometry.Point;
-import ru.сourses.geometry.PointPlusOnePoint;
-import ru.сourses.numbers.Fraction;
-import ru.сourses.students.RuleChet;
-import ru.сourses.students.Student;
-import ru.сourses.students.StudentTest;
+//import ru.courses.birds.*;
+//import ru.courses.geometry.*;
+import ru.courses.numbers.*;
+//import ru.courses.students.*;
+//import java.util.Arrays;
+//import ru.courses.numbers.*;
+import static ru.courses.numbers.Exponentiation.*;
 
-import java.util.Arrays;
-
+import com.java.awt.Point;
+import ru.courses.geometry.*;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Point p1 = new Point(4,1);
+        ru.courses.geometry.Point p2 = new ru.courses.geometry.Point(1,9);
+        System.out.println(p1.toString());
+        System.out.println(p2.toString());
+
+
+
+        String s1 = "3";
+        String s2 = "2";
+        Exponentiation e1= stringInInt(s1, s2);
+        Exponentiation e2 = new Exponentiation(2,4);
+        System.out.println(mathPow(e1));
+        System.out.println(exponentiation(s1, s2));
+
+/*
         Point p1 = new Point(1,3);
         Point p2 = new Point(5,8);
         Point p3 = new Point(10,11);
@@ -33,11 +46,11 @@ public class Main {
 
         System.out.println();
         double lineLenght = 0;
-        Point p10 = new Point(1,5);
-        Point p11 = new Point(2,8);
-        Point p12 = new Point(5,3);
-        Point p13 = new Point(8,9);
-        Point[] pointArr = {p10, p11, p12, p13};
+        ru.courses.geometry.Point p10 = new Point(1,5);
+        ru.courses.geometry.Point p11 = new Point(2,8);
+        ru.courses.geometry.Point p12 = new Point(5,3);
+        ru.courses.geometry.Point p13 = new Point(8,9);
+        ru.courses.geometry.Point[] pointArr = {p10, p11, p12, p13};
         //Создать Ломаную, проходящую через точки {1;5}, {2;8}, {5;3}, {8,9}
         BrokenLine bl10 = new BrokenLine(pointArr);
         //Рассчитать длину Ломаной
@@ -79,8 +92,8 @@ public class Main {
         System.out.println(p.toString());
 
         System.out.println();
-        //ru.сourses.geometry.ru.сourses.geometry.BrokenLinePlusOnePoint bl = new ru.сourses.geometry.ru.сourses.geometry.BrokenLinePlusOnePoint(pointArr);
-       // System.out.println(bl);
+        //ru.courses.geometry.ru.сourses.geometry.BrokenLinePlusOnePoint bl = new ru.courses.geometry.ru.сourses.geometry.BrokenLinePlusOnePoint(pointArr);
+       //System.out.println(bl);
 
         System.out.println();
 
@@ -100,11 +113,36 @@ public class Main {
         st.addGrade(10954322);
         System.out.println(st.toString());
 
-        ru.сourses.numbers.Number n = new Fraction(3,2);
+        ru.courses.numbers.Number n = new Fraction(3,2);
 
+        System.out.println();
+        BrokenLine bb = new BrokenLine(pointArr);
+        BrokenLinePlusOnePoint blp = new BrokenLinePlusOnePoint(pointArr);
+        System.out.println(bb.sumLenghtArr());
+        System.out.println(blp.sumLenghtArr());
+*/
 
+        ru.courses.geometry.Point p5 = new ru.courses.geometry.Point(1,2);
+        ru.courses.geometry.Point p6 = new ru.courses.geometry.Point(3,4);
+        ru.courses.geometry.Point p9 = new ru.courses.geometry.Point(3,4);
+        System.out.println(p5.equals(p6));
+        System.out.println(p5==p6);
+        ru.courses.geometry.Point p7 = p5.clone();
+        System.out.println(p7.toString());
 
+        Line l1 = new Line(p5, p6);
+        Line l2 = new Line(p5, p6);
+        System.out.println(l1.toString());
+        System.out.println(l2.toString());
 
+        System.out.println(l1.toString());
+        System.out.println(l2.toString());
+        System.out.println(l1.equals(l2));
+        ru.courses.geometry.Point[] pointArr = {p5, p6, p9};
+        ru.courses.geometry.Point[] pointArr2 = {p5, p6, p9};
+        BrokenLine b1 = new BrokenLine(pointArr);
+        BrokenLine b2 = new BrokenLine(pointArr2);
+        System.out.println(b1.equals(b2));
     }
 
 

@@ -1,4 +1,4 @@
-package ru.сourses.numbers;
+package ru.courses.numbers;
 public class Fraction extends Number{
      private final int numer, denomin;
 

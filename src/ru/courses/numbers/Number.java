@@ -1,4 +1,4 @@
-package ru.сourses.numbers;
+package ru.courses.numbers;
 
 public abstract class Number{
     public abstract Number plusFraction(Fraction f);

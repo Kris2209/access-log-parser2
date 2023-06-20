@@ -1,4 +1,4 @@
-package ru.сourses.students;
+package ru.courses.students;
 
 public class RuleChet implements Rule {
     @Override

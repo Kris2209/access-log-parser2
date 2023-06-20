@@ -1,4 +1,4 @@
-package ru.сourses.birds;
+package ru.courses.birds;
 
 public class Sparrow extends Bird {
     @Override
