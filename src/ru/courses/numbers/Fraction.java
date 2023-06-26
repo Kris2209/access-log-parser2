@@ -7,23 +7,23 @@ public class Fraction extends Number{
         this.numer = numer;
         this.denomin = denomin;
     }
-    @Override
+
     public Fraction plusFraction(Fraction f){
-        Fraction res = new Fraction(this.numer + f.numer, this.denomin * f.denomin);
+        Fraction res = new Fraction((this.numer * f.denomin)+(f.numer * this.denomin), this.denomin * f.denomin);
         return res;
     }
-    @Override
+
     public Fraction plusInt(int x){
        Fraction f = new Fraction(x,1);
        return plusFraction(f);
             }
-    @Override
+
     public Fraction minusFraction(Fraction f){
-        Fraction res = new Fraction(this.numer - f.numer, this.denomin * f.denomin);
+        Fraction res = new Fraction((this.numer * f.denomin)-(f.numer * this.denomin), this.denomin * f.denomin);
         return res;
 
     }
-    @Override
+
     public Fraction minusInt(int x){
         Fraction f = new Fraction(x,1);
         return minusFraction(f);
@@ -32,4 +32,30 @@ public class Fraction extends Number{
     public String toString() {
         return numer + "/" + denomin;
     }
+
+    @Override
+    public int intValue() {
+        return numer/denomin;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) numer/denomin;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) numer/denomin;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double) numer/denomin;
+    }
+
+
+    public double fractionDivision(){
+        return (double) this.numer/this.denomin;
+    }
 }
+
