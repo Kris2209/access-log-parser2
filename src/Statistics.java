@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Statistics {
     LogEntry[] entries;
@@ -67,6 +69,7 @@ public class Statistics {
         return (int)(totalTraffic / hours);
     }
 
+
     public int getVisitRate() {
         long hours = ChronoUnit.HOURS.between(minTime, maxTime);
         if (hours == 0)
@@ -93,6 +96,39 @@ public class Statistics {
         return (int) (totalVisits / users);
     }
 
+    public int getPeakVisits() {
+        var visits = Arrays.stream(entries)
+                .limit(lastEntryIndex)
+                .filter(entry -> entry.userAgent.isReal)
+                .map(entry -> ChronoUnit.SECONDS.between(entry.date, minTime))
+                .collect(Collectors.groupingBy(seconds -> seconds, Collectors.counting()));
+        return visits.values().stream()
+                .max(Long::compare)
+                .orElse(0L)
+                .intValue();
+    }
+
+    public int getUserMaxVisits() {
+        var usersStat = Arrays.stream(entries)
+                .limit(lastEntryIndex)
+                .filter(entry -> entry.userAgent.isReal)
+                .map(entry -> entry.IPAddress)
+                .collect(Collectors.groupingBy(ip -> ip, Collectors.counting()));
+        return usersStat.values().stream()
+                .max(Long::compare)
+                .orElse(0L)
+                .intValue();
+    }
+
+    public List<String> getReferrers() {
+        return Arrays.stream(entries)
+                .limit(lastEntryIndex)
+                .map(entry -> entry.referer)
+                .filter(Predicate.not(String::isEmpty))
+                .map(ref -> ref.replaceAll("http(s)?://|www\\.|/.*", ""))
+                .distinct()
+                .collect(Collectors.toList());
+    }
     public List<String> getOkPages() {
         return Arrays.asList(okPages.toArray(new String[0]));
     }
